@@ -23,7 +23,6 @@ import org.hibernate.secure.internal.JaccPreInsertEventListener;
 import org.hibernate.secure.internal.JaccPreLoadEventListener;
 import org.hibernate.secure.internal.JaccPreUpdateEventListener;
 import org.hibernate.secure.internal.JaccSecurityListener;
-import org.hibernate.secure.internal.StandardJaccServiceImpl;
 import org.hibernate.service.spi.SessionFactoryServiceRegistry;
 
 import org.jboss.logging.Logger;
@@ -51,8 +50,7 @@ public class JaccIntegrator implements ServiceContributingIntegrator {
 
 	@Override
 	public void prepareServices(StandardServiceRegistryBuilder serviceRegistryBuilder) {
-		boolean isSecurityEnabled = serviceRegistryBuilder.getSettings().containsKey( AvailableSettings.JACC_ENABLED );
-		final JaccService jaccService = isSecurityEnabled ? new StandardJaccServiceImpl() : new DisabledJaccServiceImpl();
+		final JaccService jaccService = new DisabledJaccServiceImpl();
 		serviceRegistryBuilder.addService( JaccService.class, jaccService );
 	}
 
