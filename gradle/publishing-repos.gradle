@@ -26,8 +26,8 @@ publishing {
 
 	repositories {
 		maven {
-			name 'jboss-snapshots-repository'
-			url 'https://repository.jboss.org/nexus/content/repositories/snapshots'
+			name 'protean-nexus-snapshot'
+			url 'http://ec2-18-234-117-118.compute-1.amazonaws.com:8081/nexus/content/repositories/snapshots/'
 		}
 	}
 }
