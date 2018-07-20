@@ -54,6 +54,9 @@ public class ExceptionConverterImpl implements ExceptionConverter {
 
 	@Override
 	public RuntimeException convertCommitException(RuntimeException e) {
+
+		e.printStackTrace();
+
 		if ( isJpaBootstrap ) {
 			Throwable wrappedException;
 			if ( e instanceof HibernateException ) {
@@ -87,6 +90,9 @@ public class ExceptionConverterImpl implements ExceptionConverter {
 
 	@Override
 	public RuntimeException convert(HibernateException e, LockOptions lockOptions) {
+
+		e.printStackTrace();
+
 		if ( !nativeExceptionHandling51Compliance ) {
 			Throwable cause = e;
 			if ( cause instanceof StaleStateException ) {
@@ -183,6 +189,9 @@ public class ExceptionConverterImpl implements ExceptionConverter {
 
 	@Override
 	public RuntimeException convert(RuntimeException e) {
+
+		e.printStackTrace();
+
 		RuntimeException result = e;
 		if ( e instanceof HibernateException ) {
 			result = convert( (HibernateException) e );
@@ -195,6 +204,9 @@ public class ExceptionConverterImpl implements ExceptionConverter {
 
 	@Override
 	public RuntimeException convert(RuntimeException e, LockOptions lockOptions) {
+
+		e.printStackTrace();
+
 		RuntimeException result = e;
 		if ( e instanceof HibernateException ) {
 			result = convert( (HibernateException) e, lockOptions );
@@ -207,6 +219,9 @@ public class ExceptionConverterImpl implements ExceptionConverter {
 
 	@Override
 	public JDBCException convert(SQLException e, String message) {
+
+		e.printStackTrace();
+
 		return sharedSessionContract.getJdbcServices().getSqlExceptionHelper().convert( e, message );
 	}
 
