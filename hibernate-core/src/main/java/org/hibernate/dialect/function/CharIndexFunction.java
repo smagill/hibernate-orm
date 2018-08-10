@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Nathan Moon
  */
-public class CharIndexFunction implements SQLFunction {
+public final class CharIndexFunction implements SQLFunction {
 	@Override
 	public boolean hasArguments() {
 		return true;

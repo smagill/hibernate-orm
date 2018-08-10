@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Gavin King
  */
-public class NvlFunction implements SQLFunction {
+public final class NvlFunction implements SQLFunction {
 	@Override
 	public boolean hasArguments() {
 		return true;

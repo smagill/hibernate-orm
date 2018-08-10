@@ -15,7 +15,7 @@ import org.hibernate.internal.util.StringHelper;
  *
  * @author Steve Ebersole
  */
-public class NamedEntityGraphDefinition {
+public final class NamedEntityGraphDefinition {
 	private final NamedEntityGraph annotation;
 	private final String jpaEntityName;
 	private final String entityName;

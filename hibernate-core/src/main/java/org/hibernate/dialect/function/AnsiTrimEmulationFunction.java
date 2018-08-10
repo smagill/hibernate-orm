@@ -16,7 +16,7 @@ import org.hibernate.type.StandardBasicTypes;
  *
  * @author Steve Ebersole
  */
-public class AnsiTrimEmulationFunction extends AbstractAnsiTrimEmulationFunction {
+public final class AnsiTrimEmulationFunction extends AbstractAnsiTrimEmulationFunction {
 	/**
 	 * The default {@code ltrim} function name
 	 */

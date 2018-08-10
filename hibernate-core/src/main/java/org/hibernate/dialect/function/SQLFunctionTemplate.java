@@ -25,7 +25,7 @@ import org.hibernate.type.Type;
  *
  * @author <a href="mailto:alex@jboss.org">Alexey Loubyansky</a>
  */
-public class SQLFunctionTemplate implements SQLFunction {
+public final class SQLFunctionTemplate implements SQLFunction {
 	private final Type type;
 	private final TemplateRenderer renderer;
 	private final boolean hasParenthesesIfNoArgs;

@@ -29,7 +29,7 @@ import org.hibernate.type.StandardBasicTypes;
  *
  * @author Gail Badner
  */
-public class DB2SubstringFunction extends StandardSQLFunction {
+public final class DB2SubstringFunction extends StandardSQLFunction {
 	private static final Set<String> possibleStringUnits = new HashSet<>(
 			Arrays.asList( "CODEUNITS16", "CODEUNITS32", "OCTETS" )
 	);

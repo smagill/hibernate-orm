@@ -17,7 +17,7 @@ import org.hibernate.type.Type;
  *
  * @author Steve Ebersole
  */
-public class StandardJDBCEscapeFunction extends StandardSQLFunction {
+public final class StandardJDBCEscapeFunction extends StandardSQLFunction {
 	/**
 	 * Constructs a StandardJDBCEscapeFunction
 	 *

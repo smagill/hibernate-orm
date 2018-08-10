@@ -16,7 +16,7 @@ import org.hibernate.type.Type;
  *
  * @author Jonathan Levinson
  */
-public class ConditionalParenthesisFunction extends StandardSQLFunction {
+public final class ConditionalParenthesisFunction extends StandardSQLFunction {
 	/**
 	 * Constructs a ConditionalParenthesisFunction with the given name
 	 *

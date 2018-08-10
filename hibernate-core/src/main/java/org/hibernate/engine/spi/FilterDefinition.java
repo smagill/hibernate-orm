@@ -19,7 +19,7 @@ import org.hibernate.type.Type;
  *
  * @author Steve Ebersole
  */
-public class FilterDefinition implements Serializable {
+public final class FilterDefinition implements Serializable {
 	private final String filterName;
 	private final String defaultFilterCondition;
 	private final Map<String, Type> parameterTypes = new HashMap<String, Type>();

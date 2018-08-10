@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Gavin King
  */
-public class CastFunction implements SQLFunction {
+public final class CastFunction implements SQLFunction {
 	/**
 	 * Singleton access
 	 */

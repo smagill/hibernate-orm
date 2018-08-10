@@ -20,7 +20,7 @@ import org.hibernate.internal.util.collections.CollectionHelper;
  * @author Emmanuel Bernard
  * @author Strong Liu
  */
-public class IdentifierGeneratorDefinition implements Serializable {
+public final class IdentifierGeneratorDefinition implements Serializable {
 	private final String name;
 	private final String strategy;
 	private final Map<String, String> parameters;

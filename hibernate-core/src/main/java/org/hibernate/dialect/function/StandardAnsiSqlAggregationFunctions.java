@@ -28,7 +28,7 @@ public class StandardAnsiSqlAggregationFunctions {
 	/**
 	 * Definition of a standard ANSI SQL compliant <tt>COUNT</tt> function
 	 */
-	public static class CountFunction extends StandardSQLFunction {
+	public static final class CountFunction extends StandardSQLFunction {
 		/**
 		 * Singleton access
 		 */
@@ -114,7 +114,7 @@ public class StandardAnsiSqlAggregationFunctions {
 	/**
 	 * Definition of a standard ANSI SQL compliant <tt>MAX</tt> function
 	 */
-	public static class MaxFunction extends StandardSQLFunction {
+	public static final class MaxFunction extends StandardSQLFunction {
 		/**
 		 * Singleton access
 		 */
@@ -128,7 +128,7 @@ public class StandardAnsiSqlAggregationFunctions {
 	/**
 	 * Definition of a standard ANSI SQL compliant <tt>MIN</tt> function
 	 */
-	public static class MinFunction extends StandardSQLFunction {
+	public static final class MinFunction extends StandardSQLFunction {
 		/**
 		 * Singleton access
 		 */
@@ -143,7 +143,7 @@ public class StandardAnsiSqlAggregationFunctions {
 	/**
 	 * Definition of a standard ANSI SQL compliant <tt>SUM</tt> function
 	 */
-	public static class SumFunction extends StandardSQLFunction {
+	public static final class SumFunction extends StandardSQLFunction {
 		/**
 		 * Singleton access
 		 */

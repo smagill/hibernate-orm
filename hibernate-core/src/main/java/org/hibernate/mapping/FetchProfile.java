@@ -17,7 +17,7 @@ import java.util.LinkedHashSet;
  *
  * @see org.hibernate.engine.profile.FetchProfile
  */
-public class FetchProfile {
+public final class FetchProfile {
 	private final String name;
 	private final MetadataSource source;
 	private LinkedHashSet<Fetch> fetches = new LinkedHashSet<Fetch>();
@@ -94,7 +94,7 @@ public class FetchProfile {
 	/**
 	 * Defines an individual association fetch within the given profile.
 	 */
-	public static class Fetch {
+	public static final class Fetch {
 		private final String entity;
 		private final String association;
 		private final String style;

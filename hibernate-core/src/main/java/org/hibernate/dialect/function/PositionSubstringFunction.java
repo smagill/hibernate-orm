@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Gavin King
  */
-public class PositionSubstringFunction implements SQLFunction {
+public final class PositionSubstringFunction implements SQLFunction {
 	@Override
 	public boolean hasArguments() {
 		return true;

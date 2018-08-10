@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Gavin King
  */
-public class VarArgsSQLFunction implements SQLFunction {
+public final class VarArgsSQLFunction implements SQLFunction {
 	private final String begin;
 	private final String sep;
 	private final String end;

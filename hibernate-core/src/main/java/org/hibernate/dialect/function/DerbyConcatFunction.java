@@ -29,7 +29,7 @@ import org.hibernate.type.Type;
  *
  * @author Steve Ebersole
  */
-public class DerbyConcatFunction implements SQLFunction {
+public final class DerbyConcatFunction implements SQLFunction {
 	/**
 	 * {@inheritDoc}
 	 * <p/>

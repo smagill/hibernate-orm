@@ -19,7 +19,7 @@ import org.hibernate.engine.query.spi.sql.NativeSQLQueryReturn;
  * @author Max Andersen
  * @author Steve Ebersole
  */
-public class NamedSQLQueryDefinition extends NamedQueryDefinition {
+public final class NamedSQLQueryDefinition extends NamedQueryDefinition {
 
 	private NativeSQLQueryReturn[] queryReturns;
 	private final List<String> querySpaces;

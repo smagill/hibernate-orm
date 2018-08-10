@@ -29,7 +29,7 @@ import java.util.Properties;
  * @author Steve Ebersole
  * @author John Verhaeg
  */
-public class TypeDefinition implements Serializable {
+public final class TypeDefinition implements Serializable {
 	private final String name;
 	private final Class typeImplementorClass;
 	private final String[] registrationKeys;

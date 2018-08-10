@@ -18,7 +18,7 @@ import org.hibernate.type.Type;
  *
  * @author Jonathan Levinson
  */
-public class ConvertFunction implements SQLFunction {
+public final class ConvertFunction implements SQLFunction {
 	@Override
 	public boolean hasArguments() {
 		return true;

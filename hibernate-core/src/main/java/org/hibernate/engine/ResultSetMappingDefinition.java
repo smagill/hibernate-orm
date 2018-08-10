@@ -17,7 +17,7 @@ import org.hibernate.engine.query.spi.sql.NativeSQLQueryReturn;
  *
  * @author Emmanuel Bernard
  */
-public class ResultSetMappingDefinition implements Serializable {
+public final class ResultSetMappingDefinition implements Serializable {
 	private final String name;
 	private final List<NativeSQLQueryReturn> queryReturns = new ArrayList<NativeSQLQueryReturn>();
 

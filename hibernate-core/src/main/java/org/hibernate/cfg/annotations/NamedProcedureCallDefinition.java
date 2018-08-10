@@ -38,7 +38,7 @@ import static org.hibernate.procedure.internal.ProcedureCallMementoImpl.Paramete
  *
  * @see javax.persistence.NamedStoredProcedureQuery
  */
-public class NamedProcedureCallDefinition {
+public final class NamedProcedureCallDefinition {
 	private final String registeredName;
 	private final String procedureName;
 	private final Class[] resultClasses;
@@ -143,7 +143,7 @@ public class NamedProcedureCallDefinition {
 		);
 	}
 
-	static class ParameterDefinitions {
+	static final class ParameterDefinitions {
 		private final ParameterStrategy parameterStrategy;
 		private final ParameterDefinition[] parameterDefinitions;
 
@@ -183,7 +183,7 @@ public class NamedProcedureCallDefinition {
 		}
 	}
 
-	static class ParameterDefinition {
+	static final class ParameterDefinition {
 		private final Integer position;
 		private final String name;
 		private final ParameterMode parameterMode;

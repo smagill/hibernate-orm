@@ -82,23 +82,23 @@ public class MetadataImpl implements MetadataImplementor, Serializable {
 	private final Database database;
 
 	MetadataImpl(
-			UUID uuid,
-			MetadataBuildingOptions metadataBuildingOptions,
-			MutableIdentifierGeneratorFactory identifierGeneratorFactory,
-			Map<String, PersistentClass> entityBindingMap,
-			Map<Class, MappedSuperclass> mappedSuperclassMap,
+			UUID uuid, //ok for protean
+			MetadataBuildingOptions metadataBuildingOptions, // FIXME needs replacement
+			MutableIdentifierGeneratorFactory identifierGeneratorFactory, // TODO could be made lighter? N.B. contains a ServiceRegistry reference -> nuke it
+			Map<String, PersistentClass> entityBindingMap, //TODO a ServiceRegistry reference -> nuke it
+			Map<Class, MappedSuperclass> mappedSuperclassMap, //TODO a ServiceRegistry reference -> nuke it
 			Map<String, Collection> collectionBindingMap,
-			Map<String, TypeDefinition> typeDefinitionMap,
-			Map<String, FilterDefinition> filterDefinitionMap,
-			Map<String, FetchProfile> fetchProfileMap,
-			Map<String, String> imports,
-			Map<String, IdentifierGeneratorDefinition> idGeneratorDefinitionMap,
-			Map<String, NamedQueryDefinition> namedQueryMap,
-			Map<String, NamedSQLQueryDefinition> namedNativeQueryMap,
-			Map<String, NamedProcedureCallDefinition> namedProcedureCallMap,
-			Map<String, ResultSetMappingDefinition> sqlResultSetMappingMap,
-			Map<String, NamedEntityGraphDefinition> namedEntityGraphMap,
-			Map<String, SQLFunction> sqlFunctionMap,
+			Map<String, TypeDefinition> typeDefinitionMap,  //ok for protean
+			Map<String, FilterDefinition> filterDefinitionMap,  //ok for protean
+			Map<String, FetchProfile> fetchProfileMap, //ok for protean
+			Map<String, String> imports,  //ok for protean
+			Map<String, IdentifierGeneratorDefinition> idGeneratorDefinitionMap,  //ok for protean
+			Map<String, NamedQueryDefinition> namedQueryMap,   //ok for protean
+			Map<String, NamedSQLQueryDefinition> namedNativeQueryMap, // might contain references to org.hibernate.loader.custom.ConstructorResultColumnProcessor, org.hibernate.type.TypeStandardSQLFunction
+			Map<String, NamedProcedureCallDefinition> namedProcedureCallMap, //ok for protean
+			Map<String, ResultSetMappingDefinition> sqlResultSetMappingMap, // might contain NativeSQLQueryReturn (as namedNativeQueryMap above)
+			Map<String, NamedEntityGraphDefinition> namedEntityGraphMap, //reference to *annotation* instance ! FIXME or ignore feature?
+			Map<String, SQLFunction> sqlFunctionMap, // looking fine for protean - not entirely sure as there's a lot of implementors. Marked all the ones I could as "final" to simplify analysis.
 			Database database,
 			BootstrapContext bootstrapContext) {
 		this.uuid = uuid;
