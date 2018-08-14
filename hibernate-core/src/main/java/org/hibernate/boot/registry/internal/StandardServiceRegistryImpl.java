@@ -71,6 +71,10 @@ public class StandardServiceRegistryImpl extends AbstractServiceRegistryImpl imp
 
 		this.configurationValues = configurationValues;
 
+		applyServiceRegistrations( serviceInitiators, providedServices );
+	}
+
+	private void applyServiceRegistrations(List<StandardServiceInitiator> serviceInitiators, List<ProvidedService> providedServices) {
 		try {
 			// process initiators
 			for ( ServiceInitiator initiator : serviceInitiators ) {
@@ -99,5 +103,28 @@ public class StandardServiceRegistryImpl extends AbstractServiceRegistryImpl imp
 		if ( Configurable.class.isInstance( serviceBinding.getService() ) ) {
 			( (Configurable) serviceBinding.getService() ).configure( configurationValues );
 		}
+	}
+
+	/**
+	 * Very advanced and tricky to handle: not designed for this. Intended for experiments only!
+	 */
+	public void resetAndReactivate(BootstrapServiceRegistry bootstrapServiceRegistry,
+								   List<StandardServiceInitiator> serviceInitiators,
+								   List<ProvidedService> providedServices,
+								   Map<?, ?> configurationValues) {
+		if ( super.isActive() ) {
+			throw new IllegalStateException( "Can't reactivate an active registry!" );
+		}
+		super.resetParent( bootstrapServiceRegistry );
+		this.configurationValues.clear();
+		this.configurationValues.putAll( configurationValues );
+		super.reactivate();
+		applyServiceRegistrations( serviceInitiators, providedServices );
+	}
+
+	@Override
+	public synchronized void destroy() {
+		super.destroy();
+		configurationValues.clear();
 	}
 }
