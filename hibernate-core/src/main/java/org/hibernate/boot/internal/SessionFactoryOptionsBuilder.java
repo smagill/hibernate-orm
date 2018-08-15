@@ -931,7 +931,7 @@ public class SessionFactoryOptionsBuilder implements SessionFactoryOptions {
 
 	@Override
 	public boolean isWrapResultSetsEnabled() {
-		return wrapResultSetsEnabled;
+		return false;//Hardcoded for Protean: avoid a bunch of proxy classes being generated
 	}
 
 	@Override
