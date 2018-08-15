@@ -73,8 +73,6 @@ public interface ClassLoaderService extends Service, Stoppable {
 	 */
 	public <S> Collection<S> loadJavaServices(Class<S> serviceContract);
 
-	<T> T generateProxy(InvocationHandler handler, Class... interfaces);
-
 	interface Work<T> {
 		T doWork(ClassLoader classLoader);
 	}

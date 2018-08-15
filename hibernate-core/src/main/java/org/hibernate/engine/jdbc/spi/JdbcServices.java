@@ -70,9 +70,4 @@ public interface JdbcServices extends Service {
 	 */
 	LobCreator getLobCreator(LobCreationContext lobCreationContext);
 
-	/**
-	 * Obtain service for wrapping a {@link java.sql.ResultSet} in a "column name cache" wrapper.
-	 * @return The ResultSet wrapper.
-	 */
-	ResultSetWrapper getResultSetWrapper();
 }

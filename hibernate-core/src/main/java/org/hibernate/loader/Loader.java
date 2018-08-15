@@ -2221,22 +2221,8 @@ public abstract class Loader {
 	}
 
 	private ResultSet wrapResultSetIfEnabled(final ResultSet rs, final SharedSessionContractImplementor session) {
-		if ( session.getFactory().getSessionFactoryOptions().isWrapResultSetsEnabled() ) {
-			try {
-				LOG.debugf( "Wrapping result set [%s]", rs );
-				return session.getFactory()
-						.getServiceRegistry()
-						.getService( JdbcServices.class )
-						.getResultSetWrapper().wrap( rs, retrieveColumnNameToIndexCache( rs ) );
-			}
-			catch (SQLException e) {
-				LOG.unableToWrapResultSet( e );
-				return rs;
-			}
-		}
-		else {
-			return rs;
-		}
+		//(Removed feature)
+		return rs;
 	}
 
 	private ColumnNameCache retrieveColumnNameToIndexCache(final ResultSet rs) throws SQLException {

@@ -469,16 +469,6 @@ public class ClassLoaderServiceImpl implements ClassLoaderService {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
-	public <T> T generateProxy(InvocationHandler handler, Class... interfaces) {
-		return (T) Proxy.newProxyInstance(
-				getAggregatedClassLoader(),
-				interfaces,
-				handler
-		);
-	}
-
-	@Override
 	public <T> T workWithClassLoader(Work<T> work) {
 		return work.doWork( getAggregatedClassLoader() );
 	}
