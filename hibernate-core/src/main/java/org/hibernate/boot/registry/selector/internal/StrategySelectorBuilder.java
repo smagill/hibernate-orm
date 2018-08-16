@@ -84,7 +84,6 @@ import org.hibernate.engine.transaction.jta.platform.internal.OrionJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.ResinJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.SapNetWeaverJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.SunOneJtaPlatform;
-import org.hibernate.engine.transaction.jta.platform.internal.WebSphereExtendedJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.WebSphereJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.WebSphereLibertyJtaPlatform;
 import org.hibernate.engine.transaction.jta.platform.internal.WeblogicJtaPlatform;
@@ -367,12 +366,6 @@ public class StrategySelectorBuilder {
 				"org.hibernate.service.jta.platform.internal.WebSphereJtaPlatform"
 		);
 
-		addJtaPlatforms(
-				strategySelector,
-				WebSphereExtendedJtaPlatform.class,
-				"WebSphereExtended",
-				"org.hibernate.service.jta.platform.internal.WebSphereExtendedJtaPlatform"
-		);
 	}
 
 	private void addJtaPlatforms(StrategySelectorImpl strategySelector, Class<? extends JtaPlatform> impl, String... names) {
