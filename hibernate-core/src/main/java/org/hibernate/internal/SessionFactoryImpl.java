@@ -58,7 +58,6 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.cfg.Settings;
 import org.hibernate.context.internal.JTASessionContext;
 import org.hibernate.context.internal.ManagedSessionContext;
-import org.hibernate.context.internal.ThreadLocalSessionContext;
 import org.hibernate.context.spi.CurrentSessionContext;
 import org.hibernate.context.spi.CurrentTenantIdentifierResolver;
 import org.hibernate.dialect.function.SQLFunctionRegistry;
@@ -1023,7 +1022,7 @@ public final class SessionFactoryImpl implements SessionFactoryImplementor {
 			return new JTASessionContext( this );
 		}
 		else if ( "thread".equals( impl ) ) {
-			return new ThreadLocalSessionContext( this );
+			throw new UnsupportedOperationException( "This build of Hibernate ORM doesn't support 'thread' value for configuration property" + Environment.CURRENT_SESSION_CONTEXT_CLASS );
 		}
 		else if ( "managed".equals( impl ) ) {
 			return new ManagedSessionContext( this );
