@@ -11,7 +11,6 @@ import java.util.Map;
 import javax.persistence.SharedCacheMode;
 
 import org.hibernate.MultiTenancyStrategy;
-import org.hibernate.annotations.common.reflection.ReflectionManager;
 import org.hibernate.boot.AttributeConverterInfo;
 import org.hibernate.boot.CacheRegionDefinition;
 import org.hibernate.boot.archive.scan.spi.ScanEnvironment;
@@ -63,20 +62,6 @@ public interface MetadataBuildingOptions {
 	 * @return The BasicType registrations
 	 */
 	List<BasicTypeRegistration> getBasicTypeRegistrations();
-
-	/**
-	 * Retrieve the Hibernate Commons Annotations ReflectionManager to use.
-	 *
-	 * @return The Hibernate Commons Annotations ReflectionManager to use.
-	 *
-	 * @deprecated Use {@link BootstrapContext#getReflectionManager()} instead,
-	 * The plan is to remove first {@link MetadataBuildingOptions#getReflectionManager()}
-	 * keeping {@link BootstrapContext#getReflectionManager()} till the migration from
-	 * Hibernate Commons Annotations to Jandex.
-	 *
-	 */
-	@Deprecated
-	ReflectionManager getReflectionManager();
 
 	/**
 	 * Access to the Jandex index passed by call to

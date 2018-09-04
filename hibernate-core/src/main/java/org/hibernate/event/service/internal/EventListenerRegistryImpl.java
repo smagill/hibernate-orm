@@ -120,8 +120,7 @@ public class EventListenerRegistryImpl implements EventListenerRegistry, Stoppab
 
 		this.callbackRegistry = new CallbackRegistryImpl();
 		this.callbackBuilder = new CallbackBuilderLegacyImpl(
-				bootstrapContext.getServiceRegistry().getService( ManagedBeanRegistry.class ),
-				bootstrapContext.getReflectionManager()
+				bootstrapContext.getServiceRegistry().getService( ManagedBeanRegistry.class )
 		);
 
 		this.registeredEventListeners = buildListenerGroups();
@@ -140,8 +139,7 @@ public class EventListenerRegistryImpl implements EventListenerRegistry, Stoppab
 		if ( callbackBuilder == null ) {
 			// TODO : not needed anymore when the deprecate constructor will be removed
 			this.callbackBuilder = new CallbackBuilderLegacyImpl(
-					sessionFactory.getServiceRegistry().getService( ManagedBeanRegistry.class ),
-					metadata.getMetadataBuildingOptions().getReflectionManager()
+					sessionFactory.getServiceRegistry().getService( ManagedBeanRegistry.class )
 			);
 		}
 		for ( PersistentClass persistentClass : metadata.getEntityBindings() ) {

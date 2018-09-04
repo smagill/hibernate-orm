@@ -44,63 +44,20 @@ public class CallbackBuilderLegacyImpl implements CallbackBuilder {
 	private static final Logger log = Logger.getLogger( CallbackBuilderLegacyImpl.class );
 
 	private final ManagedBeanRegistry managedBeanRegistry;
-	private final ReflectionManager reflectionManager;
 
-	public CallbackBuilderLegacyImpl(ManagedBeanRegistry managedBeanRegistry, ReflectionManager reflectionManager) {
+	public CallbackBuilderLegacyImpl(ManagedBeanRegistry managedBeanRegistry) {
 		this.managedBeanRegistry = managedBeanRegistry;
-		this.reflectionManager = reflectionManager;
 	}
 
 	@Override
 	public void buildCallbacksForEntity(String entityClassName, CallbackRegistrar callbackRegistrar) {
-		final boolean debugEnabled = log.isDebugEnabled();
-		try {
-			final XClass entityXClass = reflectionManager.classForName( entityClassName );
-			final Class entityClass = reflectionManager.toClass( entityXClass );
-			for ( CallbackType callbackType : CallbackType.values() ) {
-				if ( callbackRegistrar.hasRegisteredCallbacks( entityClass, callbackType ) ) {
-					// this most likely means we have a class mapped multiple times using the hbm.xml
-					// "entity name" feature
-					if ( debugEnabled ) {
-						log.debugf(
-								"CallbackRegistry reported that Class [%s] already had %s callbacks registered; " +
-										"assuming this means the class was mapped twice " +
-										"(using hbm.xml entity-name support) - skipping subsequent registrations",
-								entityClassName,
-								callbackType.getCallbackAnnotation().getSimpleName()
-						);
-					}
-					continue;
-				}
-				final Callback[] callbacks = resolveEntityCallbacks( entityXClass, callbackType, reflectionManager );
-				callbackRegistrar.registerCallbacks( entityClass, callbacks );
-			}
-		}
-		catch (ClassLoadingException e) {
-			throw new MappingException( "entity class not found: " + entityClassName, e );
-		}
+		//Functionality disabled
 	}
 
 	@Override
 	public void buildCallbacksForEmbeddable(
 			Property embeddableProperty, String entityClassName, CallbackRegistrar callbackRegistrar) {
-		try {
-			final XClass entityXClass = reflectionManager.classForName( entityClassName );
-			final Class entityClass = reflectionManager.toClass( entityXClass );
-
-			for ( CallbackType callbackType : CallbackType.values() ) {
-				final Callback[] callbacks = resolveEmbeddableCallbacks(
-						entityClass,
-						embeddableProperty,
-						callbackType,
-						reflectionManager
-				);
-				callbackRegistrar.registerCallbacks( entityClass, callbacks );
-			}
-		}
-		catch (ClassLoadingException e) {
-			throw new MappingException( "Class not found: ", e );
-		}
+		//Functionality disabled
 	}
 
 	@Override
